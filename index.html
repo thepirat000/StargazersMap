@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stargazers map</title>
+
+	<style>
+		#Progress {
+			width: 100%;
+			background-color: grey;
+		}
+
+		#Bar {
+			width: 0%;
+			height: 30px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+    <header>
+    </header>
+	
+	<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap' async defer></script>
+	
+    <div class="container">
+        <main role="main">
+            
+			
+			<div id="inputs">
+				<label for="repoName">GitHub repository:</label>
+				<input name="repoName" id="repoName" type="text" value="" style="width: 300px;" />
+				<img id="starsBadge" src="" />
+				<br />
+				<label for="mapType">Map type:</label>
+				<select name="mapType" id="mapType">
+					<option value="heat">Heat</option>
+					<option value="pin">Pin</option>
+				</select>
+				<span id="heatControls">
+					<label for="intensity">intensity:</label>
+					<input type="number" name="intensity" id="intensity" min="0.1" max="1" step="0.1" value="0.7" title="The intensity of each heat point. This is a decimal value between 0 and 1. This is used to specify how 'hot' a single data point should be.">
+					<label for="radius">radius:</label>
+					<input type="number" name="radius" id="radius" min="1" max="1000" step="1" value="10" title="The radius to draw each data point on the map">
+				</span>
+				<span id="pinControls" style="display:none;">
+					<label for="showText">show text:</label>
+					<input type="checkbox" name="showText" id="showText" checked="checked" />
+				</span>
+				<br />
+				<input name="Go" id="Go" type="button" value="Generate" />
+			</div>
+			<span id="ProgressText"></span>
+			<div id="Progress">
+				<div id="Bar"></div>
+			</div>
+			<div>
+				<div id='myMap' style='width:100%;height:800px;'></div>
+			</div>
+			
+			
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2019 - Stargazers map -
+        </div>
+    </footer>
+
+	<script type="text/javascript" src="stargazers.js"></script>
+
+</body>
+</html>
