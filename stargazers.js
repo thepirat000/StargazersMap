@@ -191,7 +191,7 @@ class gitHubMapper {
 
 	// Gets a batch of Geo locations using MapQuest API
 	async getGeoLocations(locations) {
-		let geoUrl = 'h' + `ttp://open.mapquestapi.com/geocoding/v1/batch?key=${this.dc(this.mapQuestKey)}`;
+		let geoUrl = 'h' + `ttps://open.mapquestapi.com/geocoding/v1/batch?key=${this.dc(this.mapQuestKey)}`;
 		let body = JSON.stringify({
 			"locations": locations,
 			"options": {
